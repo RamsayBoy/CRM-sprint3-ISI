@@ -8,7 +8,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 @Entity
-public class Client {
+public class Contact {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,14 +19,14 @@ public class Client {
     private ArrayList<Campaign> campaigns;
     private String description;
 
-    public Client(String name) {
+    public Contact(String name) {
         this.fullname = name;
         this.date = LocalDate.now();
         this.campaigns = new ArrayList<>();
         this.description = "";
     }
 
-    public Client(String name, String description) {
+    public Contact(String name, String description) {
         this.fullname = name;
         this.date = LocalDate.now();
         this.campaigns = new ArrayList<>();
