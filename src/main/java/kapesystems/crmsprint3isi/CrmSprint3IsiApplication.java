@@ -1,4 +1,4 @@
-package kapesystems.CRMsprint3ISI;
+package kapesystems.crmsprint3isi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
