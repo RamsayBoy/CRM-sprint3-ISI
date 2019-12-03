@@ -1,4 +1,4 @@
-package kapeware.CRMsprint3ISI;
+package kapesystems.CRMsprint3ISI;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

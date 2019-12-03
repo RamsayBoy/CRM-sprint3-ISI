@@ -8,7 +8,7 @@
 		<version>2.2.1.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>kapeware</groupId>
+	<groupId>kapesystems</groupId>
 	<artifactId>CRM-sprint3-ISI</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>CRM-sprint3-ISI</name>
