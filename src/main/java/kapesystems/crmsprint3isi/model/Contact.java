@@ -13,11 +13,12 @@ public class Contact {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-
     private String fullname;
     private LocalDate date;
     private ArrayList<Campaign> campaigns;
     private String description;
+
+    public Contact() {}
 
     public Contact(String name) {
         this.fullname = name;

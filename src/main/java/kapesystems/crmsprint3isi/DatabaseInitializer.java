@@ -2,26 +2,28 @@ package kapesystems.crmsprint3isi;
 
 import kapesystems.crmsprint3isi.model.Contact;
 import kapesystems.crmsprint3isi.repositories.ContactRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Controller;
 
+@Controller
 public class DatabaseInitializer implements CommandLineRunner {
 
-    @Autowired
-    private ContactRepository clientRepo;
+    Logger logger = LoggerFactory.getLogger(DatabaseInitializer.class);
 
-    public DatabaseInitializer(ContactRepository clientRepo) {
-        this.clientRepo = clientRepo;
-    }
+    @Autowired
+    private ContactRepository contactRepository;
 
     @Override
     public void run(String... args) throws Exception {
 
-        clientRepo.save(new Contact("Manolo", "El del bombo"));
-        clientRepo.save(new Contact("Pepe", "El del carrillo"));
-        clientRepo.save(new Contact("Barajas", "Tira pa' la fregoneta"));
-        clientRepo.save(new Contact("Juan", "Guerrero despiadado"));
+        contactRepository.save(new Contact("Manolete", "El del bombo"));
+        contactRepository.save(new Contact("Pepe", "El del carrillo"));
+        contactRepository.save(new Contact("Barajas", "Tira pa' la fregoneta"));
+        contactRepository.save(new Contact("Juan", "Guerrero despiadado"));
 
-        System.out.println("Database initialized successfully");
+        logger.info("Database initialized successfully");
     }
 }
