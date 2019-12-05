@@ -1,3 +1,12 @@
+/* error page default cursor y cambiar navegation por navigation */
+
+/******************************************************************************
+ *  Variables
+ *****************************************************************************/
+:root {
+    --bg-color: white;
+}
+
 /******************************************************************************
  *  Global
  *****************************************************************************/
@@ -44,6 +53,17 @@ p {
 .error-description {
     text-align: center;
     margin-top: 2rem;
+}
+
+.successMsg {
+    border: 1px solid green;
+    padding: 1rem;
+    text-align: center;
+    background-color: lavender;
+    width: 65%;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+    color: green;
 }
 
 /******************************************************************************
@@ -108,9 +128,9 @@ p {
 }
 
 .container.main-page {
-font-family: 'Roboto Condensed', sans-serif;
-color: #333333;
-text-align: center;
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #333333;
+    text-align: center;
 }
 
 .container.main-page h1 {
@@ -131,6 +151,76 @@ text-align: center;
 .container.main-page p {
     margin-top: 4rem;
     font-size: 1.8rem;
+}
+
+/******************************************************************************
+ *  Clients
+ *****************************************************************************/
+.caption {
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    cursor: default;
+}
+
+.clientTable {
+    width: 100%;
+}
+
+.clientTable .no-format {
+    background-color: var(--bg-color);
+    width: 4rem;
+    padding: 0;
+    cursor: pointer;
+}
+
+.clientTable .no-format a i {
+    color: #333333;
+    font-size: 2rem;
+}
+
+.clientTable .no-format i:hover {
+    color: blue;
+}
+
+.clientTable .no-format.delete i:hover {
+    color: red;
+}
+
+.clientTable .tableHeader {
+    text-align: center;
+    background-color: #333333;
+    color: white;
+}
+
+.clientTable tr:nth-child(even) {
+    background-color: #cce0ff;
+}
+
+.clientTable td {
+    font-size: 1.8rem;
+    padding: 1rem 2rem;
+}
+
+.clientTable tbody .center {
+    text-align: center;
+}
+
+.clientTable tbody .center.id {
+    width: 5rem;
+}
+
+.clientTable td a {
+    text-decoration: none;
+}
+
+.clientTable td a:hover {
+    text-decoration: underline;
+}
+
+.clientTable td a i {
+    padding-left: 0.5rem;
+    font-size: 1.3rem;
 }
 
 /******************************************************************************
