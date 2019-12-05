@@ -1,6 +1,14 @@
+/******************************************************************************
+ *  Global
+ *****************************************************************************/
 html {
     font-size: 62.5%;   /* Reset for REMS - 62.5% = 10px of 16 there were by default for rem */
+    box-sizing: border-box;
     font-family: 'Roboto Condensed', sans-serif;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
 }
 
 img {
@@ -8,7 +16,7 @@ img {
 }
 
 /******************************************************************************
- *  Globals
+ *  General
  *****************************************************************************/
 .container {
     width: 95%;
@@ -95,16 +103,21 @@ p {
 /******************************************************************************
  *  Container Main Page
  *****************************************************************************/
- .container.main-page {
-    font-family: 'Roboto Condensed', sans-serif;
-    color: #333333;
-    text-align: center;
- }
+.pre-footer {
+    min-height: 80vh;
+}
+
+.container.main-page {
+font-family: 'Roboto Condensed', sans-serif;
+color: #333333;
+text-align: center;
+}
 
 .container.main-page h1 {
     margin-top: 11rem;
     margin-bottom: 0;
     font-size: 4.2rem;
+    cursor: default;
 }
 
 .container.main-page h2 {
@@ -112,6 +125,7 @@ p {
     margin-top: 2rem;
     margin-bottom: 0;
     font-size: 2.4rem;
+    cursor: default;
 }
 
 .container.main-page p {
@@ -120,10 +134,22 @@ p {
 }
 
 /******************************************************************************
- *  Container
+ *  Footer
  *****************************************************************************/
+footer {
+    min-height: 20vh;
+}
 
-
-.rights {
+footer p {
+    text-align: center;
     font-size: 1.4rem!important;
+    cursor: default;
+}
+
+footer .rights {
+    margin-top: 4rem;
+    position: absolute;
+    left: 50vh;
+    right: 50vh;
+    bottom: 1rem;
 }
