@@ -48,11 +48,13 @@ p {
 .error-title {
     text-align: center;
     margin-top: 16rem;
+    cursor: default;
 }
 
 .error-description {
     text-align: center;
     margin-top: 2rem;
+    cursor: default;
 }
 
 .successMsg {
