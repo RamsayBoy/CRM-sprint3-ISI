@@ -1,14 +1,12 @@
 package kapesystems.crmsprint3isi.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Client {
@@ -18,10 +16,14 @@ public class Client {
     private long id;
     private String name;
     private Date signUpDate;
-    private ArrayList<Campaign> campaigns;
+    @OneToMany(mappedBy = "client")
+    private List<Campaign> campaigns;
+    // TODO: See how to update this value when a new campaign is added (see campaign.java setClient method)
+    private int numCampaigns = 0;
 
     public Client() {}
 
+    // TODO: Change this.attribute to setAttribute()
     public Client(String name) {
         this.name = name;
         this.signUpDate = java.sql.Date.valueOf(LocalDate.now()); // LocalDate.now() to Data type
@@ -32,6 +34,13 @@ public class Client {
         this.name = name;
         this.signUpDate = new SimpleDateFormat("dd/MM/yyyy").parse(date);
         this.campaigns = new ArrayList<>();
+    }
+
+    public Client(String name, String date, List<Campaign> campaigns) throws ParseException {
+        this.name = name;
+        this.signUpDate = new SimpleDateFormat("dd/MM/yyyy").parse(date);
+        this.campaigns = campaigns;
+        this.numCampaigns = campaigns.size();
     }
 
     public long getId() {
@@ -58,12 +67,20 @@ public class Client {
         this.signUpDate = signUpDate;
     }
 
-    public ArrayList<Campaign> getCampaigns() {
+    public List<Campaign> getCampaigns() {
         return campaigns;
     }
 
-    public void setCampaigns(ArrayList<Campaign> campaigns) {
+    public void setCampaigns(List<Campaign> campaigns) {
         this.campaigns = campaigns;
+    }
+
+    public int getNumCampaigns() {
+        return numCampaigns;
+    }
+
+    public void setNumCampaigns(int numCampaigns) {
+        this.numCampaigns = numCampaigns;
     }
 
     @Override
@@ -73,6 +90,7 @@ public class Client {
                 ", name='" + name + '\'' +
                 ", signUpDate=" + signUpDate +
                 ", campaigns=" + campaigns +
+                ", numCampaigns=" + numCampaigns +
                 '}';
     }
 }
