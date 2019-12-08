@@ -14,12 +14,13 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import java.util.List;
 
 @Controller
+@RequestMapping("/clients")
 public class ClientController {
 
     @Autowired
     private ClientRepository clientRepo;
 
-    @RequestMapping("/clients")
+    @RequestMapping()
     public String clients(Model model) {
         List clients = clientRepo.findAll();
 
@@ -31,13 +32,13 @@ public class ClientController {
         return "clients";
     }
 
-    @RequestMapping("/clients/post/{id}")
+    @RequestMapping("/post/{id}")
     public String editClient(Model model, @PathVariable Long id) {
         return "redirect:/clients";
     }
 
     // https://www.youtube.com/watch?v=bdVKdMZNjOY
-    @RequestMapping("/clients/delete/{id}")
+    @RequestMapping("/delete/{id}")
     public String deleteClient(Model model, @PathVariable Long id, RedirectAttributes redirectAttributes) {
         Client client = clientRepo.findById(id);
 
