@@ -51,8 +51,7 @@ public class ClientController {
                     + " ha sido eliminado con éxito.");
         }
         else {
-            redirectAttributes.addFlashAttribute("redirectErrMsg", "El cliente " + client.getName()
-                    + " no ha podido eliminarse.");
+            redirectAttributes.addFlashAttribute("redirectErrMsg", "El cliente no ha podido eliminarse.");
         }
 
         return "redirect:/clients";
