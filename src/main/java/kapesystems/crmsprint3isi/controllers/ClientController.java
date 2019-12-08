@@ -1,5 +1,6 @@
 package kapesystems.crmsprint3isi.controllers;
 
+import kapesystems.crmsprint3isi.model.Campaign;
 import kapesystems.crmsprint3isi.model.Client;
 import kapesystems.crmsprint3isi.repositories.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +42,10 @@ public class ClientController {
         Client client = clientRepo.findById(id);
 
         if(client != null) {
+            for(Campaign campaign : client.getCampaigns()) {
+                campaign.setClient(null);
+            }
+
             clientRepo.delete(client);
             redirectAttributes.addFlashAttribute("redirectMsg", "El cliente " + client.getName()
                     + " ha sido eliminado con éxito.");
