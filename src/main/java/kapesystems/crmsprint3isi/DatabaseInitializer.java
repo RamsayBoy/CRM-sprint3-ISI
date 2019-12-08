@@ -31,9 +31,9 @@ public class DatabaseInitializer implements CommandLineRunner {
         Client client3 = new Client("KAPEWARE", "02/05/2019");
         Client client4 = new Client("CoreDump", "25/02/2018");
 
-        Campaign campaing1 = new Campaign("Summer Time");
-        Campaign campaign2 = new Campaign("Navidad por doquier");
-        Campaign campaign3 = new Campaign("Black Friday");
+        Campaign campaing1 = new Campaign("Summer Time","28/03/2019");
+        Campaign campaign2 = new Campaign("Navidad por doquier","02/05/2019");
+        Campaign campaign3 = new Campaign("Black Friday","25/02/2018");
 
         // It is necessary to set up campaigns before save them in the repository because are the main entity
         campaing1.setClient(client1);

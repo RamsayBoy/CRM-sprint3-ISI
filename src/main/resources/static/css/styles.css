@@ -256,6 +256,66 @@ p {
     font-size: 1.3rem;
 }
 
+
+.campaignTable {
+    width: 100%;
+}
+
+.campaignTable .no-format {
+    background-color: var(--bg-color);
+    width: 4rem;
+    padding: 0;
+    cursor: pointer;
+}
+
+.campaignTable .no-format a i {
+    color: #333333;
+    font-size: 2rem;
+}
+
+.campaignTable .no-format i:hover {
+    color: blue;
+}
+
+.campaignTable .no-format.delete i:hover {
+    color: red;
+}
+
+.campaignTable .tableHeader {
+    text-align: center;
+    background-color: #333333;
+    color: white;
+}
+
+.campaignTable tr:nth-child(even) {
+    background-color: #cce0ff;
+}
+
+.campaignTable td {
+    font-size: 1.8rem;
+    padding: 1rem 2rem;
+}
+
+.campaignTable tbody .center {
+    text-align: center;
+}
+
+.campaignTable tbody .center.id {
+    width: 5rem;
+}
+
+.campaignTable td a {
+    text-decoration: none;
+}
+
+.campaignTable td a:hover {
+    text-decoration: underline;
+}
+
+.campaignTable td a i {
+    padding-left: 0.5rem;
+    font-size: 1.3rem;
+}
 /******************************************************************************
  *  Client
  *****************************************************************************/
