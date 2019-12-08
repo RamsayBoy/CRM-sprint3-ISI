@@ -38,8 +38,14 @@ public class ClientController {
         return "client";
     }
 
+    @RequestMapping("{id}/edit")
+    public String editClient(RedirectAttributes redirectAttributes, @PathVariable long id) {
+        redirectAttributes.addFlashAttribute("editMode", true);
+        return "redirect:/clients/" + id;
+    }
+
     @RequestMapping("/post/{id}")
-    public String editClient(Model model, @PathVariable Long id) {
+    public String postClient(Model model, @PathVariable Long id) {
         return "redirect:/clients";
     }
 

@@ -23,7 +23,7 @@
 </head>
 <body>
 <header>
-    <div class="navegation">
+    <div class="navigation">
         <div class="logo">
             <a href="/"><span>KAPE</span>SYSTEMS</a>
         </div> <!--.logo-->
@@ -35,10 +35,11 @@
                 <li><a href="/campaigns"><i class="fas fa-bullhorn"></i> Campañas</a></li>
             </ul>
         </nav>
-    </div> <!--.navegation-->
+    </div> <!--.navigation-->
 </header>
 
 <div class="container">
+    {{^editMode}}
     {{#client}}
     <h1>{{name}}</h1>
     <p>ID: {{id}}</p>
@@ -46,6 +47,20 @@
     <p>{{#campaigns}}Campañas:{{/campaigns}} {{#campaigns}}{{title}} {{/campaigns}} {{^campaigns}}No tiene ninguna
         campaña{{/campaigns}}</p>
     {{/client}}
+    {{/editMode}}
+
+    {{#editMode}}
+    {{#client}}
+    <form action="/post/{{id}}" method="post">
+        <h1><input type="text" name="name" value="{{name}}"></h1>
+        <p>ID: <input type="number" name="id" value="{{id}}" disabled></p>
+        <p>Fecha de registro: <input type="date" name="signUpDate" value="{{signUpDate}}"></p>
+    </form>
+    <p>{{#campaigns}}Campañas:{{/campaigns}} {{#campaigns}}{{title}} {{/campaigns}} {{^campaigns}}No tiene ninguna
+        campaña{{/campaigns}}</p>
+    {{/client}}
+    {{/editMode}}
+
     {{^client}}
     <h1 class="error-title">No existe el cliente</h1>
     <p class="error-description">Por alguna razón, no existe el cliente que busca.</p>

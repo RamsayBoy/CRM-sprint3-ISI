@@ -1,5 +1,3 @@
-/* error page default cursor y cambiar navegation por navigation */
-
 /******************************************************************************
  *  Variables
  *****************************************************************************/
@@ -84,7 +82,7 @@ p {
 /******************************************************************************
  *  Header
  *****************************************************************************/
-.navegation {
+.navigation {
     padding: 1rem 5rem;
     background-color: #333333;
     display: flex;
@@ -93,7 +91,7 @@ p {
 }
 
 .logo,
-.navegation nav a {
+.navigation nav a {
     color: white;
     font-size: 1.6rem;
 }
@@ -108,29 +106,29 @@ p {
     font-weight: 700;
 }
 
-.navegation nav ul {
+.navigation nav ul {
     list-style: none;
 }
 
-.navegation nav li {
+.navigation nav li {
     display: inline;
 }
 
-.navegation nav li a {
+.navigation nav li a {
     color: #b8b8b8;
     text-decoration: none;
     margin-right: 2rem;
 }
 
-.navegation nav li:last-of-type a {
+.navigation nav li:last-of-type a {
     margin.right: 0;
 }
 
-.navegation nav li a:hover {
+.navigation nav li a:hover {
     color: white;
 }
 
-.navegation .active {
+.navigation .active {
     color: white;
     font-weight: bold;
 }
