@@ -79,6 +79,21 @@ p {
     color: red;
 }
 
+.button {
+    border: 1px solid #407adb;
+    border-radius: 5px;
+    background-color: #407adb;
+    color: white;
+    padding: 0.4rem 1rem;
+    text-decoration: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #3161b0;
+}
+
 /******************************************************************************
  *  Header
  *****************************************************************************/
@@ -234,6 +249,19 @@ p {
 .clientTable td a i {
     padding-left: 0.5rem;
     font-size: 1.3rem;
+}
+
+/******************************************************************************
+ *  Client
+ *****************************************************************************/
+
+input[type="text"].h1-input {
+    font-weight: bold;
+    color: #333333;
+}
+
+input[type="number"].id-input {
+    width: 5rem;
 }
 
 /******************************************************************************

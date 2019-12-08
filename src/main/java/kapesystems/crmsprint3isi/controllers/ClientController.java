@@ -6,6 +6,7 @@ import kapesystems.crmsprint3isi.repositories.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -44,8 +45,20 @@ public class ClientController {
         return "redirect:/clients/" + id;
     }
 
-    @RequestMapping("/post/{id}")
-    public String postClient(Model model, @PathVariable Long id) {
+    @RequestMapping(value = "/post/{id}", method = RequestMethod.POST)
+    public String postClient(Model model, @PathVariable Long id, @ModelAttribute("client")Client clientEdited,
+                             RedirectAttributes redirectAttributes) {
+        Client client = clientRepo.findById(id);
+
+        if(client != null) {
+            clientRepo.save(clientEdited);
+            redirectAttributes.addFlashAttribute("editClientMsg", "El cliente " + client.getName() +
+                    " ha sido editado");
+        }
+        else {
+            redirectAttributes.addFlashAttribute("redirectErrMsg", "El cliente no se ha podido editar");
+        }
+
         return "redirect:/clients";
     }
 

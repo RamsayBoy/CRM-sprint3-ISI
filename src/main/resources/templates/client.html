@@ -39,6 +39,13 @@
 </header>
 
 <div class="container">
+    {{#editClientMsg}}
+    <p class="successMsg">{{editClientMsg}}</p>
+    {{/editClientMsg}}
+    {{#redirectErrMsg}}
+    <p class="errorMsg">{{redirectErrMsg}}</p>
+    {{/redirectErrMsg}}
+
     {{^editMode}}
     {{#client}}
     <h1>{{name}}</h1>
@@ -46,18 +53,21 @@
     <p>Fecha de registro: {{signUpDate}}</p>
     <p>{{#campaigns}}Campañas:{{/campaigns}} {{#campaigns}}{{title}} {{/campaigns}} {{^campaigns}}No tiene ninguna
         campaña{{/campaigns}}</p>
+    <a class="button" href="/clients/{{id}}/edit">Editar cliente</a>
     {{/client}}
     {{/editMode}}
 
     {{#editMode}}
     {{#client}}
-    <form action="/post/{{id}}" method="post">
-        <h1><input type="text" name="name" value="{{name}}"></h1>
-        <p>ID: <input type="number" name="id" value="{{id}}" disabled></p>
-        <p>Fecha de registro: <input type="date" name="signUpDate" value="{{signUpDate}}"></p>
+    <form id="editForm" action="/clients/post/{{id}}" modelAttribute="client" method="post">
+        <h1><input class="h1-input" type="text" name="name" value="{{name}}"></h1>
+        <p>ID: <input class="id-input" type="number" name="id" value="{{id}}" disabled></p>
+        <p>Fecha de registro: <input type="text" name="signUpDate" value="{{signUpDate}}"></p>
+        <p>{{#campaigns}}Campañas:{{/campaigns}} {{#campaigns}}{{title}} {{/campaigns}} {{^campaigns}}No tiene ninguna
+            campaña{{/campaigns}}</p>
+        <button class="button" type="submit">Aceptar cambios</button>
+        <a class="button" href="/clients/{{id}}">Cancelar</a>
     </form>
-    <p>{{#campaigns}}Campañas:{{/campaigns}} {{#campaigns}}{{title}} {{/campaigns}} {{^campaigns}}No tiene ninguna
-        campaña{{/campaigns}}</p>
     {{/client}}
     {{/editMode}}
 
