@@ -39,7 +39,17 @@
 </header>
 
 <div class="container">
-    
+    {{#client}}
+    <h1>{{name}}</h1>
+    <p>ID: {{id}}</p>
+    <p>Fecha de registro: {{signUpDate}}</p>
+    <p>{{#campaigns}}Campañas:{{/campaigns}} {{#campaigns}}{{title}} {{/campaigns}} {{^campaigns}}No tiene ninguna
+        campaña{{/campaigns}}</p>
+    {{/client}}
+    {{^client}}
+    <h1 class="error-title">No existe el cliente</h1>
+    <p class="error-description">Por alguna razón, no existe el cliente que busca.</p>
+    {{/client}}
 </div>
 
 <!-- JS -->

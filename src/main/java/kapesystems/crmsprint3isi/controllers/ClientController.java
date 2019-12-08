@@ -32,6 +32,12 @@ public class ClientController {
         return "clients";
     }
 
+    @RequestMapping("/{id}")
+    public String client(Model model, @PathVariable Long id) {
+        model.addAttribute("client", clientRepo.findById(id));
+        return "client";
+    }
+
     @RequestMapping("/post/{id}")
     public String editClient(Model model, @PathVariable Long id) {
         return "redirect:/clients";
