@@ -52,8 +52,7 @@ public class ClientController {
 
         if(client != null) {
             clientRepo.save(clientEdited);
-            redirectAttributes.addFlashAttribute("editClientMsg", "El cliente " + client.getName() +
-                    " ha sido editado");
+            redirectAttributes.addFlashAttribute("editClientMsg", "El cliente ha sido modificado");
         }
         else {
             redirectAttributes.addFlashAttribute("redirectErrMsg", "El cliente no se ha podido editar");

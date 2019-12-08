@@ -55,27 +55,32 @@ p {
     cursor: default;
 }
 
-.successMsg {
-    border: 1px solid green;
+.successMsg,
+.editClientMsg,
+.errorMsg{
     border-radius: 50px;
     padding: 1rem;
     text-align: center;
-    background-color: lavender;
     width: 65%;
     margin: 0 auto;
     margin-bottom: 2rem;
+}
+
+.successMsg {
+    border: 1px solid green;
+    background-color: lavender;
     color: green;
+}
+
+.editClientMsg {
+    border: 1px solid #124682;
+    background-color: #aec6e1;;
+    color: #124682;
 }
 
 .errorMsg {
     border: 1px solid red;
-    border-radius: 50px;
-    padding: 1rem;
-    text-align: center;
     background-color: antiquewhite;
-    width: 65%;
-    margin: 0 auto;
-    margin-bottom: 2rem;
     color: red;
 }
 
