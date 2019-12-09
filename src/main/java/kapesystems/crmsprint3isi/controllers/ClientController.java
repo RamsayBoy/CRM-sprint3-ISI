@@ -39,6 +39,25 @@ public class ClientController {
         return "client";
     }
 
+    @RequestMapping("/create")
+    public String createClient() {
+        return "createClient";
+    }
+
+    @RequestMapping("/add")
+    public String addClient(@ModelAttribute("client")Client newClient, RedirectAttributes redirectAttributes) {
+        if(newClient != null) {
+            clientRepo.save(newClient);
+            redirectAttributes.addFlashAttribute("redirectMsg", "El cliente " + newClient.getName()
+                    + " ha sido añadido con éxito.");
+        }
+        else {
+            redirectAttributes.addFlashAttribute("redirectErrMsg", "Hubo un error al intentar añadir el cliente");
+        }
+
+        return "redirect:/clients";
+    }
+
     @RequestMapping("{id}/edit")
     public String editClient(RedirectAttributes redirectAttributes, @PathVariable long id) {
         redirectAttributes.addFlashAttribute("editMode", true);

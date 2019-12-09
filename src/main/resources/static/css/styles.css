@@ -198,6 +198,7 @@ p {
 
 .clientTable {
     width: 100%;
+    margin-top: 1.5rem;
 }
 
 .clientTable .no-format {
@@ -255,6 +256,14 @@ p {
     padding-left: 0.5rem;
     font-size: 1.3rem;
 }
+
+.newClientBtn {
+    display: block;
+    width: 20rem;
+    text-align: center;
+    margin: auto;
+}
+
 
 
 .campaignTable {

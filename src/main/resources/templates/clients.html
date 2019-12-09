@@ -47,6 +47,7 @@
                     <td class="no-format">&nbsp</td>
                     <td>ID</td>
                     <td>Cliente</td>
+
                     {{#redirectMsg}}
                     <p class="successMsg">{{redirectMsg}}</p>
                     {{/redirectMsg}}
@@ -56,6 +57,10 @@
                     {{#redirectErrMsg}}
                     <p class="errorMsg">{{redirectErrMsg}}</p>
                     {{/redirectErrMsg}}
+
+                    <a class="button newClientBtn" href="/clients/create"><i class="fas fa-plus-circle"></i>
+                        Añadir nuevo cliente</a>
+
                     <td>Fecha de registro</td>
                     <!--td>Número de campañas</td-->
                 </tr>
