@@ -36,13 +36,6 @@ public class Client {
         this.campaigns = new ArrayList<>();
     }
 
-    public Client(String name, String date, List<Campaign> campaigns) throws ParseException {
-        this.name = name;
-        this.signUpDate = new SimpleDateFormat("dd/MM/yyyy").parse(date);
-        this.campaigns = campaigns;
-        this.numCampaigns = campaigns.size();
-    }
-
     public long getId() {
         return id;
     }
