@@ -297,19 +297,61 @@ input[type="number"].id-input {
 
 .campaign {
     border: 1px solid #333333;
-    background-color: ##e6e6e6;
+    background-color: #f7f7f7;
+    opacity: 0.6;
+    transition: all .5s ease;
     padding: 1rem;
+    padding-bottom: 0.2rem;
 }
 
-.campaign-icon {
-    font-size: 4rem;
-    text-align: center;
+.campaign:hover {
+    opacity: 1;
+    transition: all .2s ease;
+    padding: 1rem;
+    padding-bottom: 0.2rem;
+    transform: scale(1.1);
 }
 
 .campaign-content {
     text-align: center;
     margin: 1rem 0;
     line-height: 1.2;
+}
+
+.campaign-title {
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin: 0;
+    margin-bottom: 3rem;
+    cursor: default;
+}
+
+.campaign-icon {
+    font-size: 4rem;
+    text-align: center;
+    margin: 0;
+    margin-bottom: 3rem;
+    cursor: default;
+}
+
+.campaign-description {
+    margin: 0 2rem;
+    cursor: default;
+}
+
+.campaign-dates {
+    text-align: right;
+    font-size: 1.2rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    cursor: default;
+}
+
+.campaign-action-icon {
+    cursor: pointer;
+    color: #333333;
+    margin: 0 0.5rem;
+    text-decoration: none;
 }
 
 /******************************************************************************

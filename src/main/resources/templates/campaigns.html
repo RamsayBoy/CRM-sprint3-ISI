@@ -43,10 +43,19 @@
     <div class="campaigns-list">
         {{#campaigns}}
         <div class="campaign">
-            <p class="campaign-icon"><i class="fas fa-campground"></i></p>
             <div class="campaign-content">
-                <p>{{title}}</p>
-                <p>Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum</p>
+                <p class="campaign-title">{{title}}</p>
+                <p class="campaign-icon"><i class="fas fa-campground"></i></p>
+                <p class="campaign-description">Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum</p>
+                <p>
+                    <a class="campaign-action-icon" href="/campaigns/{{id}}/edit">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                    <a class="campaign-action-icon" href="/campaigns/delete/{{id}}">
+                        <i class="fas fa-trash-alt"></i>
+                    </a>
+                </p>
+                <p class="campaign-dates">07/09/2019 - 09/12/2020</p>
             </div>
         </div>
         {{/campaigns}}
