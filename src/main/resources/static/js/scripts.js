@@ -11,6 +11,7 @@
         editForm.addEventListener('submit', validateEditForm);
     }
 
+    // Too repetitive
     function validateCreateForm(event) {
         var clientName = createForm[0].value;
         var clientDate = createForm[1].value;
