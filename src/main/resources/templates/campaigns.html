@@ -23,55 +23,34 @@
 </head>
 <body>
 <header>
-    <div class="navegation">
+    <div class="navigation">
         <div class="logo">
             <a href="/"><span>KAPE</span>SYSTEMS</a>
         </div> <!--.logo-->
 
         <nav>
             <ul>
-                <li><a href="/clients" class="active"><i class="fas fa-users"></i> Clientes</a></li>
-                <li><a href="/surveys"><i class="fas fa-poll-h"></i> Encuestas</a></li>
-                <li><a href="/campaigns"><i class="fas fa-bullhorn"></i> Campañas</a></li>
+                <li><a href="/clients"><i class="fas fa-users"></i> Clientes</a></li>
+                <li><a href="/campaigns" class="active"><i class="fas fa-bullhorn"></i> Campañas</a></li>
             </ul>
         </nav>
-    </div> <!--.navegation-->
+    </div> <!--.navigation-->
 </header>
 
-<div class="container">
+<div class="container campaign-page">
     {{#areCampaigns}}
-    <table class="campaignTable">
-        <h1 class="caption">Campañas</h1>
-        <thead class="tableHeader">
-        <tr>
-            <td class="no-format">&nbsp</td>
-            <td class="no-format">&nbsp</td>
-            <td>ID</td>
-            <td>Campaña</td>
-            {{#redirectMsg}}
-            <p class="successMsg">{{redirectMsg}}</p>
-            {{/redirectMsg}}
-            {{#redirectErrMsg}}
-            <p class="errorMsg">{{redirectErrMsg}}</p>
-            {{/redirectErrMsg}}
-            <td>Fecha de registro</td>
-            <!--td>Número de campañas</td-->
-        </tr>
-        </thead>
-        <tbody>
-        {{/areCampaigns}}
+    <h1 class="campaign-page-title">Campañas</h1>
+    <div class="campaigns-list">
         {{#campaigns}}
-        <tr>
-            <td class="no-format"><a href="campaigns/post/{{id}}"><i class="fas fa-edit"></i></a></td>
-            <td class="no-format delete"><a href="campaigns/delete/{{id}}"><i class="fas fa-trash-alt"></i></a></td>
-            <td class="center id">{{id}}</td>
-            <td><a href="campaigns/{{id}}">{{title}} <i class="fas fa-external-link-alt"></i></a></td>
-            <td class="center">{{signUpDate}}</td>
-        </tr>
+        <div class="campaign">
+            <p class="campaign-icon"><i class="fas fa-campground"></i></p>
+            <div class="campaign-content">
+                <p>{{title}}</p>
+                <p>Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum</p>
+            </div>
+        </div>
         {{/campaigns}}
-        {{#areCampaigns}}
-        </tbody>
-    </table>
+    </div>
     {{/areCampaigns}}
     {{^areCampaigns}}
     <h1 class="error-title">No hay campañas :(</h1>

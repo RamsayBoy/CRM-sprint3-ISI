@@ -265,8 +265,75 @@ p {
     margin: auto;
 }
 
+/******************************************************************************
+ *  Client
+ *****************************************************************************/
 
+input[type="text"].h1-input {
+    font-weight: bold;
+    color: #333333;
+}
 
+input[type="number"].id-input {
+    width: 5rem;
+}
+
+/******************************************************************************
+ *  Campaigns
+ *****************************************************************************/
+.container.campaign-page {
+    width: 65%;
+}
+
+.campaign-page-title {
+    text-align: center;
+}
+
+.campaigns-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* fr = fracción; with auto, images can fail */
+    grid-gap: 4rem;
+}
+
+.campaign {
+    border: 1px solid #333333;
+    background-color: ##e6e6e6;
+    padding: 1rem;
+}
+
+.campaign-icon {
+    font-size: 4rem;
+    text-align: center;
+}
+
+.campaign-content {
+    text-align: center;
+    margin: 1rem 0;
+    line-height: 1.2;
+}
+
+/******************************************************************************
+ *  Footer
+ *****************************************************************************/
+footer {
+    min-height: 20vh;
+}
+
+footer p {
+    text-align: center;
+    font-size: 1.4rem!important;
+    cursor: default;
+}
+
+footer .rights {
+    margin-top: 4rem;
+    position: absolute;
+    left: 50vh;
+    right: 50vh;
+    bottom: 1rem;
+}
+
+/*
 .campaignTable {
     width: 100%;
 }
@@ -326,36 +393,4 @@ p {
     padding-left: 0.5rem;
     font-size: 1.3rem;
 }
-/******************************************************************************
- *  Client
- *****************************************************************************/
-
-input[type="text"].h1-input {
-    font-weight: bold;
-    color: #333333;
-}
-
-input[type="number"].id-input {
-    width: 5rem;
-}
-
-/******************************************************************************
- *  Footer
- *****************************************************************************/
-footer {
-    min-height: 20vh;
-}
-
-footer p {
-    text-align: center;
-    font-size: 1.4rem!important;
-    cursor: default;
-}
-
-footer .rights {
-    margin-top: 4rem;
-    position: absolute;
-    left: 50vh;
-    right: 50vh;
-    bottom: 1rem;
-}
+*/

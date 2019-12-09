@@ -15,12 +15,15 @@ public class Campaign {
     private long id;
     private String title;
     private Date signUpDate;
-
     @ManyToOne
     private Client client;
 
-
     public Campaign() {}
+
+    public Campaign(String title) {
+        this.title = title;
+        this.signUpDate = java.sql.Date.valueOf(LocalDate.now());
+    }
 
     public Campaign(String title, Client client) {
         this.title = title;
@@ -28,19 +31,15 @@ public class Campaign {
         this.client = client;
     }
 
+    public Campaign(String title, String date) throws ParseException {
+        this.title = title;
+        this.signUpDate = new SimpleDateFormat("dd/MM/yyyy").parse(date);
+    }
+
     public Campaign(String title, Client client, String date) throws ParseException {
         this.title = title;
         this.signUpDate = new SimpleDateFormat("dd/MM/yyyy").parse(date);
         this.client = client;
-    }
-    public Campaign(String title) {
-        this.title = title;
-        this.signUpDate = java.sql.Date.valueOf(LocalDate.now());
-    }
-
-    public Campaign(String title,String date) throws ParseException {
-        this.title = title;
-        this.signUpDate = new SimpleDateFormat("dd/MM/yyyy").parse(date);
     }
 
     public long getId() {
@@ -51,20 +50,20 @@ public class Campaign {
         this.id = id;
     }
 
-    public Date getSignUpDate() {
-        return signUpDate;
-    }
-
-    public void setSignUpDate(Date signUpDate) {
-        this.signUpDate = signUpDate;
-    }
-
     public String getTitle() {
         return title;
     }
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public Date getSignUpDate() {
+        return signUpDate;
+    }
+
+    public void setSignUpDate(Date signUpDate) {
+        this.signUpDate = signUpDate;
     }
 
     public Client getClient() {
