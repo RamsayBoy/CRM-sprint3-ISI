@@ -15,24 +15,21 @@ public class Client {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String name;
-    private Date signUpDate;
+    private String signUpDate;
     @OneToMany(mappedBy = "client")
     private List<Campaign> campaigns;
-    // TODO: See how to update this value when a new campaign is added (see campaign.java setClient method)
-    private int numCampaigns = 0;
 
     public Client() {}
 
-    // TODO: Change this.attribute to setAttribute()
     public Client(String name) {
         this.name = name;
-        this.signUpDate = java.sql.Date.valueOf(LocalDate.now()); // LocalDate.now() to Data type
+        this.signUpDate = "00/00/0000";
         this.campaigns = new ArrayList<>();
     }
 
-    public Client(String name, String date) throws ParseException {
+    public Client(String name, String date) {
         this.name = name;
-        this.signUpDate = new SimpleDateFormat("dd/MM/yyyy").parse(date);
+        this.signUpDate = date;
         this.campaigns = new ArrayList<>();
     }
 
@@ -52,11 +49,11 @@ public class Client {
         this.name = name;
     }
 
-    public Date getSignUpDate() {
+    public String getSignUpDate() {
         return signUpDate;
     }
 
-    public void setSignUpDate(Date signUpDate) {
+    public void setSignUpDate(String signUpDate) {
         this.signUpDate = signUpDate;
     }
 
@@ -68,14 +65,6 @@ public class Client {
         this.campaigns = campaigns;
     }
 
-    public int getNumCampaigns() {
-        return numCampaigns;
-    }
-
-    public void setNumCampaigns(int numCampaigns) {
-        this.numCampaigns = numCampaigns;
-    }
-
     @Override
     public String toString() {
         return "Client{" +
@@ -83,7 +72,6 @@ public class Client {
                 ", name='" + name + '\'' +
                 ", signUpDate=" + signUpDate +
                 ", campaigns=" + campaigns +
-                ", numCampaigns=" + numCampaigns +
                 '}';
     }
 }
