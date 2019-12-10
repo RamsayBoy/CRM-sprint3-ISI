@@ -303,10 +303,6 @@ input[type="number"].id-input {
     padding-bottom: 0.2rem;
 }
 
-.campaign:last-child {
-    margin-bottom: 5rem;
-}
-
 .campaign:hover {
     transition: all .2s ease;
     padding: 1rem;
@@ -341,6 +337,7 @@ input[type="number"].id-input {
     margin-bottom: 3rem;
     cursor: default;
     height: 12rem;
+    overflow: scroll;
 }
 
 .campaign-dates {
@@ -418,6 +415,10 @@ footer .rights {
     left: 50vh;
     right: 50vh;
     bottom: 1rem;
+}
+
+.campaign-footer {
+    height: 5rem;
 }
 
 /*
