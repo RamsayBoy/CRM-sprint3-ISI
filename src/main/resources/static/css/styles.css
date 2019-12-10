@@ -301,6 +301,9 @@ input[type="number"].id-input {
     transition: all .5s ease;
     padding: 1rem;
     padding-bottom: 0.2rem;
+}
+
+.campaign:last-child {
     margin-bottom: 5rem;
 }
 
@@ -353,6 +356,37 @@ input[type="number"].id-input {
     color: #333333;
     margin: 0 0.5rem;
     text-decoration: none;
+}
+
+a.campaign {
+    color: #333333;
+    text-decoration: none;
+}
+
+.campaign.campaign-add {
+    opacity: 0.4;
+    min-height: 25rem;
+    padding-top: 10rem;
+    border: none;
+}
+
+.campaign-add {
+    font-size: 10rem;
+    text-align: center;
+}
+
+p.campaign-add {
+    font-size: 1.8rem;
+}
+
+.campaign.campaign-add:hover {
+    opacity: 0.4;
+    min-height: 25rem;
+}
+
+.campaign-add:hover {
+    font-size: 10rem;
+    text-align: center;
 }
 
 /******************************************************************************
