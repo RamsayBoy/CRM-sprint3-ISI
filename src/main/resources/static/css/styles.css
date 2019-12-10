@@ -435,6 +435,48 @@ p.campaign-add {
     margin: auto;
 }
 
+.campaign-id,
+.popup input,
+.popup textarea {
+    font-size: 1.8rem;
+    display: block;
+    margin-bottom: 2rem;
+    margin-left: 3rem;
+}
+
+.popup p {
+    font-size: 1.8rem;
+    text-align: left;
+    margin: 0;
+    margin-left: 3rem;
+    margin-bottom: 1rem;
+}
+
+.popup h1 {
+    margin-top: -2rem;
+    font-size: 3.2rem;
+    margin-bottom: 0;
+    cursor: default;
+}
+
+.campaign-id {
+    margin-top: 1rem;
+    max-width: 5rem;
+}
+
+.popup input[type=text] {
+    width: -moz-available;
+    max-width: 50rem;
+}
+
+.popup textarea {
+    resize: none;
+    padding-left: 0;
+    height: 8rem;
+    width: -moz-available;
+    max-width: 50rem;
+}
+
 /******************************************************************************
  *  Footer
  *****************************************************************************/

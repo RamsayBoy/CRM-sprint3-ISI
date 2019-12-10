@@ -89,10 +89,14 @@
     <div class="overlay">
         <div class="popup">
             <a href="/campaigns" id="close-btn-popup" class="close-btn-popup"><i class="fas fa-times"></i></a>
+            <h1 class="center">Editar campaña</h1>
             <form id="editForm" action="/campaigns/post/{{id}}" modelAttribute="campaign" method="post">
-                <input type="number" value="{{id}}" disabled>
-                <input type="text" placeholder="Nombre de la campaña" value="{{title}}">
-                <textarea maxlength="50" placeholder="Descripción de la campaña (50 letras máx.)">
+                <p>ID:</p><input class="campaign-id" type="number" value="{{id}}" disabled>
+                <p>Nombre de la campaña:</p>
+                <input type="text" value="{{title}}">
+                <p>Descripción de la campaña:</p>
+                <textarea maxlength="50"
+                          placeholder="(50 letras máx.)">
                     {{description}}
                 </textarea>
                 <button class="button" type="submit">Guardar cambios</button>
