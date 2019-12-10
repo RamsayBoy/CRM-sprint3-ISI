@@ -21,12 +21,6 @@ public class Client {
 
     public Client() {}
 
-    public Client(String name) {
-        this.name = name;
-        this.signUpDate = "00/00/0000";
-        this.campaigns = new ArrayList<>();
-    }
-
     public Client(String name, String date) {
         this.name = name;
         this.signUpDate = date;
@@ -70,7 +64,7 @@ public class Client {
         return "Client{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", signUpDate=" + signUpDate +
+                ", signUpDate='" + signUpDate + '\'' +
                 ", campaigns=" + campaigns +
                 '}';
     }
