@@ -49,7 +49,7 @@ public class DatabaseInitializer implements CommandLineRunner {
         // It is necessary to set up campaigns before save them in the repository because are the main entity
         campaing1.setClient(client1);
         campaign2.setClient(client2);
-        campaign3.setClient(client3);
+        campaign3.setClient(client2);
 
         clientRepository.save(client1);
         clientRepository.save(client2);

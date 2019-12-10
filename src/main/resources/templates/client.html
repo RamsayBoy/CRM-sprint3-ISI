@@ -43,8 +43,14 @@
     <h1>{{name}}</h1>
     <p>ID: {{id}}</p>
     <p>Fecha de registro: {{signUpDate}}</p>
-    <p>{{#campaigns}}Campañas:{{/campaigns}} {{#campaigns}}{{title}} {{/campaigns}} {{^campaigns}}No tiene ninguna
-        campaña{{/campaigns}}</p>
+    <p>Campañas: {{^campaigns}}Ninguna{{/campaigns}}</p>
+    <ul>
+        {{#campaigns}}
+        <li>
+            <p>{{title}}</p>
+        </li>
+        {{/campaigns}}
+    </ul>
     <a class="button" href="/clients/{{id}}/edit">Editar cliente</a>
     {{/client}}
     {{/editMode}}
@@ -55,8 +61,14 @@
         <h1><input class="h1-input" type="text" name="name" value="{{name}}"></h1>
         <p>ID: <input class="id-input" type="number" name="id" value="{{id}}" disabled></p>
         <p>Fecha de registro: <input type="text" name="signUpDate" value="{{signUpDate}}"></p>
-        <p>{{#campaigns}}Campañas:{{/campaigns}} {{#campaigns}}{{title}} {{/campaigns}} {{^campaigns}}No tiene ninguna
-            campaña{{/campaigns}}</p>
+        <p>Campañas: {{^campaigns}}No tiene ninguna campaña{{/campaigns}}</p>
+        <ul>
+            {{#campaigns}}
+            <li>
+                <p>{{title}}</p>
+            </li>
+            {{/campaigns}}
+        </ul>
         <button class="button" type="submit">Aceptar cambios</button>
         <a class="button" href="/clients">Cancelar</a>
     </form>
