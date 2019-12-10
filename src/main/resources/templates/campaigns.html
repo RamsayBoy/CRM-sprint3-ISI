@@ -44,6 +44,9 @@
     {{#redirectMsg}}
     <p class="successMsg">{{redirectMsg}}</p>
     {{/redirectMsg}}
+    {{#editClientMsg}}
+    <p class="editClientMsg">{{editClientMsg}}</p>
+    {{/editClientMsg}}
     {{#redirectErrMsg}}
     <p class="errorMsg">{{redirectErrMsg}}</p>
     {{/redirectErrMsg}}
@@ -90,16 +93,24 @@
         <div class="popup">
             <a href="/campaigns" id="close-btn-popup" class="close-btn-popup"><i class="fas fa-times"></i></a>
             <h1 class="center">Editar campaña</h1>
-            <form id="editForm" action="/campaigns/post/{{id}}" modelAttribute="campaign" method="post">
-                <p>ID:</p><input class="campaign-id" type="number" value="{{id}}" disabled>
+            <form id="editFormCampaign" action="/campaigns/post/{{id}}" modelAttribute="campaign" method="post">
+                <p>ID:</p><input name="id" class="campaign-id" type="number" value="{{id}}" disabled>
                 <p>Nombre de la campaña:</p>
-                <input type="text" value="{{title}}">
+                <input name="title" type="text" value="{{title}}">
                 <p>Descripción de la campaña:</p>
-                <textarea maxlength="50"
+                <textarea name="description" maxlength="50"
                           placeholder="(50 letras máx.)">
                     {{description}}
                 </textarea>
-                <button class="button" type="submit">Guardar cambios</button>
+                <div class="date">
+                    <p>Fecha de inicio:</p>
+                    <input name="initialDate" type="text" value="{{initialDate}}">
+                </div>
+                <div class="date">
+                    <p>Fecha de caducidad:</p>
+                    <input name="expirationDate" type="text" value="{{expirationDate}}">
+                </div>
+                <button class="button right" type="submit">Guardar cambios</button>
             </form>
         </div>
     </div>

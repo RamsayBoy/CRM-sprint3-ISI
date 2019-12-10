@@ -477,6 +477,16 @@ p.campaign-add {
     max-width: 50rem;
 }
 
+.popup div.date {
+    max-width: 20rem;
+    display: inline-block;
+}
+
+.button.right {
+    display: block;
+    margin: auto;
+}
+
 /******************************************************************************
  *  Footer
  *****************************************************************************/
