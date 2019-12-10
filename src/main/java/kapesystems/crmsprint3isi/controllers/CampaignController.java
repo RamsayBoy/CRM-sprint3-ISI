@@ -1,6 +1,7 @@
 package kapesystems.crmsprint3isi.controllers;
 
 import kapesystems.crmsprint3isi.model.Campaign;
+import kapesystems.crmsprint3isi.model.Client;
 import kapesystems.crmsprint3isi.repositories.CampaignRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -40,6 +41,27 @@ public class CampaignController {
         if(campaign.isPresent()) {
             Campaign campaignToEdit = (Campaign) campaign.get();
             redirectAttributes.addFlashAttribute("campaign", campaignToEdit);
+        }
+
+        return "redirect:/campaigns";
+    }
+
+    @RequestMapping("/create")
+    public String createCampaign(RedirectAttributes redirectAttributes) {
+        redirectAttributes.addFlashAttribute("createMode", true);
+
+        return "redirect:/campaigns";
+    }
+
+    @RequestMapping("/add")
+    public String addCampaign(@ModelAttribute("campaign") Campaign campaign, RedirectAttributes redirectAttributes) {
+        if(campaign != null) {
+            campaignRepo.save(campaign);
+            redirectAttributes.addFlashAttribute("redirectMsg", "El cliente " + campaign.getTitle()
+                    + " ha sido añadida con éxito.");
+        }
+        else {
+            redirectAttributes.addFlashAttribute("redirectErrMsg", "Hubo un error al intentar añadir el cliente");
         }
 
         return "redirect:/campaigns";
