@@ -361,10 +361,14 @@ input[type="number"].id-input {
 a.campaign {
     color: #333333;
     text-decoration: none;
+    opacity: 0.4;
+}
+
+a.campaign div.campaign-add {
+    padding-top: 10rem;
 }
 
 .campaign.campaign-add {
-    opacity: 0.4;
     min-height: 25rem;
     padding-top: 10rem;
     border: none;
@@ -380,13 +384,19 @@ p.campaign-add {
 }
 
 .campaign.campaign-add:hover {
-    opacity: 0.4;
     min-height: 25rem;
 }
 
 .campaign-add:hover {
     font-size: 10rem;
     text-align: center;
+}
+
+.newCampaignBtn {
+    display: block;
+    width: 23rem;
+    text-align: center;
+    margin: auto;
 }
 
 /******************************************************************************
