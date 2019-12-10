@@ -301,6 +301,7 @@ input[type="number"].id-input {
     transition: all .5s ease;
     padding: 1rem;
     padding-bottom: 0.2rem;
+    margin-bottom: 5rem;
 }
 
 .campaign:hover {
@@ -336,6 +337,7 @@ input[type="number"].id-input {
     margin: 0 2rem;
     margin-bottom: 3rem;
     cursor: default;
+    height: 12rem;
 }
 
 .campaign-dates {

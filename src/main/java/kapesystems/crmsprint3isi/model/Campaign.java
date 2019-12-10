@@ -4,7 +4,6 @@ import javax.persistence.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Date;
 
 @Entity
@@ -14,32 +13,19 @@ public class Campaign {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String title;
-    private Date signUpDate;
+    private String description;
+    private String initialDate;
+    private String expirationDate;
     @ManyToOne
     private Client client;
 
     public Campaign() {}
 
-    public Campaign(String title) {
+    public Campaign(String title, String description, String iniDate, String expDate) {
         this.title = title;
-        this.signUpDate = java.sql.Date.valueOf(LocalDate.now());
-    }
-
-    public Campaign(String title, Client client) {
-        this.title = title;
-        this.signUpDate = java.sql.Date.valueOf(LocalDate.now());
-        this.client = client;
-    }
-
-    public Campaign(String title, String date) throws ParseException {
-        this.title = title;
-        this.signUpDate = new SimpleDateFormat("dd/MM/yyyy").parse(date);
-    }
-
-    public Campaign(String title, Client client, String date) throws ParseException {
-        this.title = title;
-        this.signUpDate = new SimpleDateFormat("dd/MM/yyyy").parse(date);
-        this.client = client;
+        this.description = description;
+        this.initialDate = iniDate;
+        this.expirationDate = expDate;
     }
 
     public long getId() {
@@ -58,12 +44,28 @@ public class Campaign {
         this.title = title;
     }
 
-    public Date getSignUpDate() {
-        return signUpDate;
+    public String getDescription() {
+        return description;
     }
 
-    public void setSignUpDate(Date signUpDate) {
-        this.signUpDate = signUpDate;
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getInitialDate() {
+        return initialDate;
+    }
+
+    public void setInitialDate(String initialDate) {
+        this.initialDate = initialDate;
+    }
+
+    public String getExpirationDate() {
+        return expirationDate;
+    }
+
+    public void setExpirationDate(String expirationDate) {
+        this.expirationDate = expirationDate;
     }
 
     public Client getClient() {
@@ -71,9 +73,18 @@ public class Campaign {
     }
 
     public void setClient(Client client) {
-        // TODO: Make it work without comments
-        //int numCampaigns = this.getClient().getNumCampaigns();
         this.client = client;
-        //this.getClient().setNumCampaigns(numCampaigns);
+    }
+
+    @Override
+    public String toString() {
+        return "Campaign{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", initialDate='" + initialDate + '\'' +
+                ", expirationDate='" + expirationDate + '\'' +
+                ", client=" + client +
+                '}';
     }
 }
