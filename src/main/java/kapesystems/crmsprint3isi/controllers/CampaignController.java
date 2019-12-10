@@ -31,6 +31,19 @@ public class CampaignController {
         return "campaigns";
     }
 
+    @RequestMapping("{id}/edit")
+    public String editCampaign(RedirectAttributes redirectAttributes, @PathVariable long id) {
+        redirectAttributes.addFlashAttribute("editMode", true);
+
+        Optional campaign = campaignRepo.findById(id);
+
+        if(campaign.isPresent()) {
+            redirectAttributes.addFlashAttribute("campaign", campaign.get());
+        }
+
+        return "redirect:/campaigns";
+    }
+
     @RequestMapping("/delete/{id}")
     public String deleteCampaign(@PathVariable long id, RedirectAttributes redirectAttributes) {
         Optional<Campaign> campaign = campaignRepo.findById(id);

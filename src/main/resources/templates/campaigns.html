@@ -83,6 +83,25 @@
     <a class="button newCampaignBtn" href="/clients/create"><i class="fas fa-plus-circle"></i>
         Añadir nueva campaña</a>
     {{/areCampaigns}}
+
+    {{#editMode}}
+    {{#campaign}}
+    <div class="overlay">
+        <div class="popup">
+            <a href="/campaigns" id="close-btn-popup" class="close-btn-popup"><i class="fas fa-times"></i></a>
+            <form id="editForm" action="/campaigns/post/{{id}}" modelAttribute="campaign" method="post">
+                <input type="number" value="{{id}}" disabled>
+                <input type="text" placeholder="Nombre de la campaña" value="{{title}}">
+                <textarea maxlength="50" placeholder="Descripción de la campaña (50 letras máx.)">
+                    {{description}}
+                </textarea>
+                <button class="button" type="submit">Guardar cambios</button>
+            </form>
+        </div>
+    </div>
+    {{/campaign}}
+    {{/editMode}}
+
     <div class="campaign-footer"></div>
 </div>
 
