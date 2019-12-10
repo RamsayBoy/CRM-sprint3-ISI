@@ -66,6 +66,9 @@
                 <p class="campaign-icon"><i class="fas fa-campground"></i></p>
                 <p class="campaign-description">{{description}}</p>
                 <p>
+                    <a class="campaign-action-icon" href="/campaigns/{{id}}">
+                        <i class="fas fa-eye"></i>
+                    </a>
                     <a class="campaign-action-icon" href="/campaigns/{{id}}/edit">
                         <i class="fas fa-edit"></i>
                     </a>
@@ -87,35 +90,40 @@
         Añadir nueva campaña</a>
     {{/areCampaigns}}
 
-    {{#editMode}}
     {{#campaign}}
     <div class="overlay">
         <div class="popup">
             <a href="/campaigns" id="close-btn-popup" class="close-btn-popup"><i class="fas fa-times"></i></a>
-            <h1 class="center">Editar campaña</h1>
-            <form id="editFormCampaign" action="/campaigns/post/{{id}}" modelAttribute="campaign" method="post">
-                <p>ID:</p><input name="id" class="campaign-id" type="number" value="{{id}}" disabled>
-                <p>Nombre de la campaña:</p>
-                <input name="title" type="text" value="{{title}}">
-                <p>Descripción de la campaña:</p>
-                <textarea name="description" maxlength="50"
+                {{#editMode}}<h1 class="center">Editar campaña</h1>{{/editMode}}
+                {{^editMode}}<h1>{{title}}</h1>{{/editMode}}
+                {{#editMode}}<form id="editFormCampaign" action="/campaigns/post/{{id}}" modelAttribute="campaign" method="post">{{/editMode}}
+                <p><b>ID:</b> {{^editMode}}{{id}}{{/editMode}}</p>{{#editMode}}<input name="id" class="campaign-id" type="number" value="{{id}}" disabled>{{/editMode}}
+                {{#editMode}}<p><b>Nombre de la campaña:</b></p>
+                <input name="title" type="text" value="{{title}}">{{/editMode}}
+                <p><b>Descripción de la campaña:</b></p>
+                {{#editMode}}<textarea name="description" maxlength="50"
                           placeholder="(50 letras máx.)">
                     {{description}}
-                </textarea>
+                </textarea>{{/editMode}}
+                <p>{{^editMode}}{{description}}{{/editMode}}</p>
                 <div class="date">
-                    <p>Fecha de inicio:</p>
-                    <input name="initialDate" type="text" value="{{initialDate}}">
+                    <p><b>Fecha de inicio:</b></p>
+                    {{#editMode}}<input name="initialDate" type="text" value="{{initialDate}}">{{/editMode}}
+                    {{^editMode}}<p>{{initialDate}}<p>{{/editMode}}
                 </div>
                 <div class="date">
-                    <p>Fecha de caducidad:</p>
-                    <input name="expirationDate" type="text" value="{{expirationDate}}">
+                    <p><b>Fecha de caducidad:</b></p>
+                    {{#editMode}}<input name="expirationDate" type="text" value="{{expirationDate}}">{{/editMode}}
+                    {{^editMode}}<p>{{expirationDate}}<p>{{/editMode}}
                 </div>
-                <button class="button right" type="submit">Guardar cambios</button>
-            </form>
+                {{#editMode}}<button class="button right" type="submit">Guardar cambios</button>
+                <a class="button right" href="/campaigns/{{id}}">Cancelar</a>
+            </form>{{/editMode}}
+
+            {{^editMode}}<a class="button right" href="/campaigns/{{id}}/edit">Editar</a>{{/editMode}}
         </div>
     </div>
     {{/campaign}}
-    {{/editMode}}
 
     <div class="campaign-footer"></div>
 </div>

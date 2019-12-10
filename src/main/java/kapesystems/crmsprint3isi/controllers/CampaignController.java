@@ -33,6 +33,18 @@ public class CampaignController {
         return "campaigns";
     }
 
+    @RequestMapping("/{id}")
+    public String campaign(@PathVariable long id, RedirectAttributes redirectAttributes) {
+        Optional campaign = campaignRepo.findById(id);
+
+        if(campaign.isPresent()) {
+            Campaign campaignToEdit = (Campaign) campaign.get();
+            redirectAttributes.addFlashAttribute("campaign", campaignToEdit);
+        }
+
+        return "redirect:/campaigns";
+    }
+
     @RequestMapping("{id}/edit")
     public String editCampaign(RedirectAttributes redirectAttributes, @PathVariable long id) {
         redirectAttributes.addFlashAttribute("editMode", true);
@@ -47,6 +59,7 @@ public class CampaignController {
         return "redirect:/campaigns";
     }
 
+    // TODO: change client
     @RequestMapping(value = "/post/{id}", method = RequestMethod.POST)
     public String postCampaign(@PathVariable Long id, @ModelAttribute("campaign") Campaign campaignEdited,
                                RedirectAttributes redirectAttributes) {

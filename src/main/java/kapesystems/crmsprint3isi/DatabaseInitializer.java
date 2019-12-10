@@ -35,7 +35,7 @@ public class DatabaseInitializer implements CommandLineRunner {
                 "Summer Time",
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc feugiat consectetur sodales." +
                         " Etiam eu vehicula leo.",
-                "28/03/2019", "05/04/2019");
+                "15/06/2019", "15/09/2019");
         Campaign campaign2 = new Campaign(
                 "Navidad por doquier",
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc feugiat consectetur sodales." +
