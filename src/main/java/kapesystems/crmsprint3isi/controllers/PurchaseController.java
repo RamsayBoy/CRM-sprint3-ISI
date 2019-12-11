@@ -158,4 +158,22 @@ public class PurchaseController {
 
         return "redirect:/purchases";
     }
+
+    @RequestMapping("/delete/{id}")
+    public String deletePurchase(@PathVariable long id, RedirectAttributes redirectAttributes) {
+        Optional<Purchase> purchase = purchaseRepo.findById(id);
+
+        if(purchase.isPresent()) {
+            Purchase purchaseToDelete = purchase.get();
+            purchaseRepo.delete(purchaseToDelete);
+
+            redirectAttributes.addFlashAttribute("redirectMsg", "La compra " + purchaseToDelete.getProductName()
+                    + " ha sido eliminada con éxito.");
+        }
+        else {
+            redirectAttributes.addFlashAttribute("redirectErrMsg", "La compra no ha podido eliminarse.");
+        }
+
+        return "redirect:/purchases";
+    }
 }
