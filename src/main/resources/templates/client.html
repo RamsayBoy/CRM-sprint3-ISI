@@ -41,18 +41,34 @@
 <div class="container">
     {{^editMode}}
     {{#client}}
-    <h1>{{name}}</h1>
-    <p>ID: {{id}}</p>
-    <p>Fecha de registro: {{signUpDate}}</p>
-    <p>Campañas: {{^campaigns}}Ninguna{{/campaigns}}</p>
-    <ul>
-        {{#campaigns}}
-        <li>
-            <p>{{title}}</p>
-        </li>
-        {{/campaigns}}
-    </ul>
-    <a class="button" href="/clients/{{id}}/edit">Editar cliente</a>
+    <h1 class="clientName">{{name}}</h1>
+    <div class="clientContent">
+        <p class="id"><b>ID</b></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- {{id}}</p>
+
+        <p class="date"><b>Fecha de registro</b></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- {{signUpDate}}</p>
+
+        <p class="campaigns"><b>Campañas</b></p>
+        {{^campaigns}}<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Ninguna</p>{{/campaigns}}
+        <ul class="campaigns">
+            {{#campaigns}}
+            <li>
+                <p>{{title}}</p>
+            </li>
+            {{/campaigns}}
+        </ul>
+        <p class="purchases"><b>Compras realizadas</b></p>
+        {{^purchases}}<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Ninguna</p>{{/purchases}}
+        <ul class="purchases">
+            {{#purchases}}
+            <li>
+                <p>{{productName}}</p>
+            </li>
+            {{/purchases}}
+        </ul>
+        <a class="button" href="/clients/{{id}}/edit">Editar cliente</a>
+    </div>
     {{/client}}
     {{/editMode}}
 

@@ -319,6 +319,53 @@ p {
 /******************************************************************************
  *  Client
  *****************************************************************************/
+h1.clientName,
+div.clientContent {
+    width: 60rem;
+}
+
+h1.clientName {
+    text-align: center;
+    font-size: 5rem;
+    background-color: slategray;
+    margin: 4rem auto 0 auto;
+    color: white;
+    border-top-left-radius: 3rem;
+    border-top-right-radius: 3rem;
+}
+
+div.clientContent {
+    margin: 0 auto;
+    padding: 1rem 4rem;
+    background-color: lightgray;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+/*div.clientContent b {
+    border-bottom: 1px solid black;
+}*/
+
+div.clientContent p {
+    margin: 0 0 1rem 0;
+}
+
+div.clientContent .id,
+div.clientContent .date,
+div.clientContent .campaigns,
+div.clientContent .purchases {
+    margin: 0;
+}
+
+div.clientContent .campaigns {
+    margin: 0;
+}
+
+div.clientContent .button {
+    margin: 1rem auto 0 auto;
+    display: block;
+    width: -moz-fit-content;
+}
 
 input[type="text"].h1-input {
     font-weight: bold;
