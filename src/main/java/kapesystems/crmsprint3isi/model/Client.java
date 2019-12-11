@@ -18,6 +18,8 @@ public class Client {
     private String signUpDate;
     @OneToMany(mappedBy = "client")
     private List<Campaign> campaigns;
+    @OneToMany(mappedBy = "client")
+    private List<Purchase> purchases;
 
     public Client() {}
 
@@ -59,6 +61,14 @@ public class Client {
         this.campaigns = campaigns;
     }
 
+    public List<Purchase> getPurchases() {
+        return purchases;
+    }
+
+    public void setPurchases(List<Purchase> purchases) {
+        this.purchases = purchases;
+    }
+
     @Override
     public String toString() {
         return "Client{" +
@@ -66,6 +76,7 @@ public class Client {
                 ", name='" + name + '\'' +
                 ", signUpDate='" + signUpDate + '\'' +
                 ", campaigns=" + campaigns +
+                ", purchases=" + purchases +
                 '}';
     }
 }

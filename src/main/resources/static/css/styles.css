@@ -99,6 +99,10 @@ p {
     background-color: #3161b0;
 }
 
+.right {
+    text-align: right;
+}
+
 /* POPUP */
 .overlay {
     background: rgba(0, 0, 0, .3);
@@ -494,6 +498,18 @@ p.campaign-add {
 a.button.right {
     width: -moz-min-content;
     margin-top: 1rem;
+}
+
+/******************************************************************************
+ *  Purchases
+ *****************************************************************************/
+thead .price {
+    text-align: center;
+}
+
+tbody .price {
+    text-align: right;
+    width: 13rem;
 }
 
 /******************************************************************************

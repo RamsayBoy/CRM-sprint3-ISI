@@ -2,6 +2,7 @@ package kapesystems.crmsprint3isi.controllers;
 
 import kapesystems.crmsprint3isi.model.Campaign;
 import kapesystems.crmsprint3isi.model.Client;
+import kapesystems.crmsprint3isi.model.Purchase;
 import kapesystems.crmsprint3isi.repositories.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -88,6 +89,10 @@ public class ClientController {
         if(client != null) {
             for(Campaign campaign : client.getCampaigns()) {
                 campaign.setClient(null);
+            }
+
+            for(Purchase purchase : client.getPurchases()) {
+                purchase.setClient(null);
             }
 
             clientRepo.delete(client);
