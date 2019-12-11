@@ -20,6 +20,45 @@
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css" media="all">
+
+    <!-- Chart -->
+    <script>
+        window.onload = function () {
+
+        var chart = new CanvasJS.Chart("chartContainer", {
+            animationEnabled: true,
+            theme: "light2", // "light1", "light2", "dark1", "dark2"
+            title:{
+                text: "Beneficio en cada mes"
+            },
+            axisY: {
+                title: "EUROS"
+            },
+            axisX: {
+                title: "MESES"
+            },
+            data: [{
+                type: "column",
+                dataPoints: [
+                    { y: {{earnedMoney0}}, label: "ENERO" },
+                    { y: {{earnedMoney1}},  label: "FEBRERO" },
+                    { y: {{earnedMoney2}},  label: "MARZO" },
+                    { y: {{earnedMoney3}},  label: "ABRIL" },
+                    { y: {{earnedMoney4}},  label: "MAYO" },
+                    { y: {{earnedMoney5}}, label: "JUNIO" },
+                    { y: {{earnedMoney6}},  label: "JULIO" },
+                    { y: {{earnedMoney7}},  label: "AGOSTO" },
+                    { y: {{earnedMoney8}},  label: "SEPTIEMBRE" },
+                    { y: {{earnedMoney9}},  label: "OCTUBRE" },
+                    { y: {{earnedMoney10}},  label: "NOVIEMBRE" },
+                    { y: {{earnedMoney11}},  label: "DICIEMBRE" }
+                ]
+            }]
+        });
+        chart.render();
+
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -45,13 +84,17 @@
             <thead class="tableHeader">
                 <tr>
                     <td>ID</td>
-                    <td>Producto</td>
+                    <td>Producto / servicio</td>
                     <td class="price">Precio</td>
                     <td>Comprador</td>
+                    <td>Mes</td>
 
                     <a class="button newClientBtn" href="/purchases/create"><i class="fas fa-plus-circle"></i>
                         Añadir nueva compra</a>
                 </tr>
+
+                <div id="chartContainer" class="chart" style="height: 300px; width: 100%;"></div>
+
             </thead>
             <tbody>
         {{/arePurchases}}
@@ -61,14 +104,15 @@
                     <td>{{productName}}</td>
                     <td class="price">{{price}}€</td>
                     <td>{{#client}}<a href="/clients/{{client.id}}">{{client.name}} <i class="fas fa-external-link-alt">
-
                     </i>{{/client}}{{^client}}NO ENCONTRADO{{/client}}</a></td>
+                    <td>{{month}}</td>
                 </tr>
         {{/purchases}}
         {{#arePurchases}}
             </tbody>
         </table>
         {{/arePurchases}}
+
         {{^arePurchases}}
         <h1 class="error-title">No hay compras :(</h1>
         <p class="error-description">No existen compras para mostrar.</p>

@@ -51,11 +51,11 @@ public class DatabaseInitializer implements CommandLineRunner {
                 "Todas las rebajas posibles en nuestros servicios",
                 "20/02/2018", "27/02/2018");
 
-        Purchase purchase1 = new Purchase("Checkeo de finanzas", 200);
-        Purchase purchase2 = new Purchase("sd", 2000);
-        Purchase purchase3 = new Purchase("asdasdad", 20);
-        Purchase purchase4 = new Purchase("Servicio de algo", 350.20);
-        Purchase purchase5 = new Purchase("blablah", 30);
+        Purchase purchase1 = new Purchase("Checkeo de finanzas", 200, "ENERO");
+        Purchase purchase2 = new Purchase("sd", 2000, "JUNIO");
+        Purchase purchase3 = new Purchase("asdasdad", 20, "DICIEMBRE");
+        Purchase purchase4 = new Purchase("Servicio de algo", 350.20, "JUNIO");
+        Purchase purchase5 = new Purchase("blablah", 30, "AGOSTO");
 
         // It is necessary to set up campaigns before save them in the repository because are the main entity
         campaing1.setClient(client1);

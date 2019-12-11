@@ -13,14 +13,16 @@ public class Purchase {
     private long id;
     private String productName;
     private double price;
+    private String month;
     @ManyToOne
     private Client client;
 
     public Purchase() {}
 
-    public Purchase(String product, double price) {
+    public Purchase(String product, double price, String month) {
         setProductName(product);
         setPrice(price);
+        setMonth(month);
     }
 
     public long getId() {
@@ -45,6 +47,14 @@ public class Purchase {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public String getMonth() {
+        return month;
+    }
+
+    public void setMonth(String month) {
+        this.month = month;
     }
 
     public Client getClient() {
