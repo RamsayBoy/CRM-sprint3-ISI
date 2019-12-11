@@ -379,7 +379,7 @@ input[type="number"].id-input {
     margin: 0 2rem;
     margin-bottom: 3rem;
     cursor: default;
-    height: 12rem;
+    height: 9rem;
     overflow: scroll;
 }
 
@@ -405,12 +405,12 @@ a.campaign {
 }
 
 a.campaign div.campaign-add {
-    padding-top: 10rem;
+    padding-top: 9rem;
 }
 
 .campaign.campaign-add {
     min-height: 25rem;
-    padding-top: 10rem;
+    padding-top: 9rem;
     border: none;
 }
 
