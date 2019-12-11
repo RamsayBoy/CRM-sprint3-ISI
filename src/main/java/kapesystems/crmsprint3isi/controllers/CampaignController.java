@@ -57,7 +57,7 @@ public class CampaignController {
     public String addCampaign(@ModelAttribute("campaign") Campaign campaign, RedirectAttributes redirectAttributes) {
         if(campaign != null) {
             campaignRepo.save(campaign);
-            redirectAttributes.addFlashAttribute("redirectMsg", "El cliente " + campaign.getTitle()
+            redirectAttributes.addFlashAttribute("redirectMsg", "La campaña " + campaign.getTitle()
                     + " ha sido añadida con éxito.");
         }
         else {
@@ -93,7 +93,7 @@ public class CampaignController {
             redirectAttributes.addFlashAttribute("editClientMsg", "La campaña ha sido modificada");
         }
         else {
-            redirectAttributes.addFlashAttribute("redirectErrMsg", "El cliente no se ha podido editar");
+            redirectAttributes.addFlashAttribute("redirectErrMsg", "La campaña no se ha podido editar");
         }
 
         return "redirect:/campaigns";
