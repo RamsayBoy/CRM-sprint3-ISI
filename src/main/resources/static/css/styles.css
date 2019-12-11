@@ -342,10 +342,6 @@ div.clientContent {
     border-bottom-right-radius: 1rem;
 }
 
-/*div.clientContent b {
-    border-bottom: 1px solid black;
-}*/
-
 div.clientContent p {
     margin: 0 0 1rem 0;
 }
@@ -370,10 +366,33 @@ div.clientContent .button {
 input[type="text"].h1-input {
     font-weight: bold;
     color: #333333;
+    text-align: center;
 }
 
 input[type="number"].id-input {
-    width: 5rem;
+    width: 6rem;
+}
+
+/******************************************************************************
+ *  Purchase
+ *****************************************************************************/
+.purchaseDiv input[type=text].clientName {
+    font-weight: bold;
+    text-align: center;
+    height: 5rem;
+    width: 53rem;
+    color: #333333;
+}
+
+.purchaseDiv input[type=text].price {
+    width: 15rem;
+}
+
+.purchaseDiv .buttons {
+    display: flex;
+    justify-content: center;
+    width: 25rem;
+    margin: auto;
 }
 
 /******************************************************************************
@@ -549,18 +568,6 @@ p.campaign-add {
 a.button.right {
     width: -moz-min-content;
     margin-top: 1rem;
-}
-
-/******************************************************************************
- *  Purchases
- *****************************************************************************/
-thead .price {
-    text-align: center;
-}
-
-tbody .price {
-    text-align: right;
-    width: 13rem;
 }
 
 /******************************************************************************

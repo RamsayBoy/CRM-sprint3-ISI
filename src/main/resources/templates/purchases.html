@@ -101,7 +101,7 @@
         {{#purchases}}
                 <tr>
                     <td class="center id">{{id}}</td>
-                    <td>{{productName}}</td>
+                    <td><a href="purchases/{{id}}">{{productName}} <i class="fas fa-external-link-alt"></i></a></td>
                     <td class="price">{{price}}€</td>
                     <td>{{#client}}<a href="/clients/{{client.id}}">{{client.name}} <i class="fas fa-external-link-alt">
                     </i>{{/client}}{{^client}}{{clientName}}{{/client}}</a></td>
