@@ -52,7 +52,7 @@ public class DatabaseInitializer implements CommandLineRunner {
                 "20/02/2018", "27/02/2018");
 
         Purchase purchase1 = new Purchase("Checkeo de finanzas", 200, "ENERO");
-        Purchase purchase2 = new Purchase("sd", 2000, "JUNIO");
+        Purchase purchase2 = new Purchase("sd", 400, "JUNIO");
         Purchase purchase3 = new Purchase("asdasdad", 20, "DICIEMBRE");
         Purchase purchase4 = new Purchase("Servicio de algo", 350.20, "JUNIO");
         Purchase purchase5 = new Purchase("blablah", 30, "AGOSTO");

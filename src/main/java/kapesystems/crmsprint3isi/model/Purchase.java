@@ -16,6 +16,7 @@ public class Purchase {
     private String month;
     @ManyToOne
     private Client client;
+    private String clientName;
 
     public Purchase() {}
 
@@ -63,5 +64,15 @@ public class Purchase {
 
     public void setClient(Client client) {
         this.client = client;
+        if(client != null)
+            setClientName(client.getName());
+    }
+
+    public String getClientName() {
+        return clientName;
+    }
+
+    public void setClientName(String clientName) {
+        this.clientName = clientName;
     }
 }
