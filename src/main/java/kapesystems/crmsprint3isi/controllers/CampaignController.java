@@ -75,6 +75,7 @@ public class CampaignController {
 
         if(campaign.isPresent()) {
             Campaign campaignToEdit = (Campaign) campaign.get();
+            campaignToEdit.getDescription().trim();
             redirectAttributes.addFlashAttribute("campaign", campaignToEdit);
         }
 
