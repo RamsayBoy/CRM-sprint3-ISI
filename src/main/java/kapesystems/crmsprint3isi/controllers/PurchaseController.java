@@ -108,9 +108,6 @@ public class PurchaseController {
     public String addPurchase(@ModelAttribute("purchase")Purchase newPurchase, RedirectAttributes redirectAttributes) {
         Client client = clientRepo.findByName(newPurchase.getClientName());
 
-        if(client == null)
-            newPurchase.setClientName("DESCONOCIDO");
-
         if(newPurchase != null) {
             newPurchase.setClient(client);
             purchaseRepo.save(newPurchase);
@@ -143,9 +140,6 @@ public class PurchaseController {
                              RedirectAttributes redirectAttributes) {
         Optional<Purchase> purchase = purchaseRepo.findById(id);
         Client client = clientRepo.findByName(purchaseEdited.getClientName());
-
-        if(client == null)
-            purchaseEdited.setClientName("DESCONOCIDO");
 
         if(purchase.isPresent()) {
             purchaseEdited.setClient(client);

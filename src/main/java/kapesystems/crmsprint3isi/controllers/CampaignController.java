@@ -61,9 +61,6 @@ public class CampaignController {
     public String addCampaign(@ModelAttribute("campaign") Campaign campaign, RedirectAttributes redirectAttributes) {
         Client client = clientRepo.findByName(campaign.getClientName());
 
-        if(client == null)
-            campaign.setClientName("DESCONOCIDO");
-
         if(campaign != null) {
             campaign.setClient(client);
             campaignRepo.save(campaign);
@@ -97,9 +94,6 @@ public class CampaignController {
                                RedirectAttributes redirectAttributes) {
         Optional<Campaign> campaign = campaignRepo.findById(id);
         Client client = clientRepo.findByName(campaignEdited.getClientName());
-
-        if(client == null)
-            campaignEdited.setClientName("DESCONOCIDO");
 
         if(campaign.isPresent()) {
             campaignEdited.setClient(client);
