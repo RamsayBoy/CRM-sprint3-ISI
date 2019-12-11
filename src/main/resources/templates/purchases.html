@@ -81,6 +81,17 @@
         {{#arePurchases}}
         <table class="clientTable">
             <h1 class="caption">Histórico de compras</h1>
+
+            {{#redirectMsg}}
+            <p class="successMsg">{{redirectMsg}}</p>
+            {{/redirectMsg}}
+            {{#editClientMsg}}
+            <p class="editClientMsg">{{editClientMsg}}</p>
+            {{/editClientMsg}}
+            {{#redirectErrMsg}}
+            <p class="errorMsg">{{redirectErrMsg}}</p>
+            {{/redirectErrMsg}}
+
             <thead class="tableHeader">
                 <tr>
                     <td class="no-format">&nbsp</td>

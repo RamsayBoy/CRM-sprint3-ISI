@@ -101,12 +101,18 @@ public class PurchaseController {
 
     @RequestMapping("/create")
     public String createPurchase(RedirectAttributes redirectAttributes) {
-        return "redirect:/purchases/create";
+        return "createPurchase";
     }
 
     @RequestMapping("/add")
     public String addPurchase(@ModelAttribute("purchase")Purchase newPurchase, RedirectAttributes redirectAttributes) {
+        Client client = clientRepo.findByName(newPurchase.getClientName());
+
+        if(client == null)
+            newPurchase.setClientName("DESCONOCIDO");
+
         if(newPurchase != null) {
+            newPurchase.setClient(client);
             purchaseRepo.save(newPurchase);
             redirectAttributes.addFlashAttribute("redirectMsg", "La compra " + newPurchase.getProductName()
                     + " ha sido añadida con éxito.");

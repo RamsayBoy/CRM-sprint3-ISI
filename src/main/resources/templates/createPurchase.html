@@ -39,37 +39,14 @@
 </header>
 
 <div class="container">
-    {{^editMode}}
-    {{#purchase}}
-    <h1 class="clientName">{{productName}}</h1>
-    <div class="clientContent">
-        <p class="id"><b>ID</b></p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- {{id}}</p>
-
-        <p class="date"><b>Mes de la compra</b></p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- {{month}}</p>
-
-        <p class="campaigns"><b>Precio</b></p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- {{price}}€</p>
-
-        <p class="campaigns"><b>Cliente que realizó la compra</b></p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- {{clientName}}</p>
-
-        <a class="button" href="/purchases/{{id}}/edit">Editar compra</a>
-    </div>
-    {{/purchase}}
-    {{/editMode}}
-
-    {{#editMode}}
-    {{#purchase}}
     <div class="purchaseDiv">
-        <form id="editPurchaseForm" action="/purchases/post/{{id}}" modelAttribute="purchase" method="post">
-            <h1 class="clientName"><input class="clientName" type="text" name="productName" value="{{productName}}"></h1>
+        <form id="editPurchaseForm" action="/purchases/add" modelAttribute="purchase">
+            <h1 class="clientName"><input class="clientName" type="text" name="productName" placeholder="Producto / servicio"></h1>
             <div class="clientContent">
                 <p class="id"><b>ID</b></p>
-                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <input class="id-input" type="number" name="id" value="{{id}}" disabled></p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <input class="id-input" type="number" name="id" disabled></p>
 
-                <p class="date"><b>Mes de la compra (actual: {{month}})</b></p>
+                <p class="date"><b>Mes de la compra</b></p>
                 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <select name="month">
                     <option selected>ENERO</option>
                     <option>FEBRERO</option>
@@ -86,25 +63,18 @@
                 </select></p>
 
                 <p class="campaigns"><b>Precio</b></p>
-                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <input class="price" type="text" name="price" value="{{price}}">€</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <input class="price" type="text" name="price" placeholder="300.0">€</p>
 
                 <p class="campaigns"><b>Cliente que realizó la compra</b></p>
-                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <input type="text" name="clientName" value="{{clientName}}"></p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <input type="text" name="clientName" placeholder="Manolete"></p>
 
                 <div class="buttons">
-                    <button class="button" type="submit">Guardar cambios</button>
+                    <button class="button" type="submit">Añadir compra</button>
                     <a class="button" href="/purchases">Cancelar</a>
                 </div>
             </div>
         </form>
     </div>
-    {{/purchase}}
-    {{/editMode}}
-
-    {{^purchase}}
-    <h1 class="error-title">No existe la compra</h1>
-    <p class="error-description">Por alguna razón, no existe la compra que busca.</p>
-    {{/purchase}}
 </div>
 
 <!-- JS -->
