@@ -18,6 +18,7 @@ public class Campaign {
     private String expirationDate;
     @ManyToOne
     private Client client;
+    private String clientName;
 
     public Campaign() {}
 
@@ -74,6 +75,16 @@ public class Campaign {
 
     public void setClient(Client client) {
         this.client = client;
+        if(client != null)
+            setClientName(client.getName());
+    }
+
+    public String getClientName() {
+        return clientName;
+    }
+
+    public void setClientName(String clientName) {
+        this.clientName = clientName;
     }
 
     @Override

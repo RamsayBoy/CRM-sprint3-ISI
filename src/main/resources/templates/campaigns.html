@@ -119,10 +119,20 @@
                 {{/editMode}}
                 <p><b>Descripción de la campaña:</b></p>
                 {{#editMode}}
-                <textarea name="description" maxlength="80"">{{description}}</textarea>
+                <textarea name="description" maxlength="80">{{description}}</textarea>
                 {{/editMode}}
 
                 <p>{{^editMode}}{{description}}{{/editMode}}</p>
+
+                <p><b>Cliente asociado:</b></p>
+                {{^editMode}}
+                <p>{{#client}}<a href="/clients/{{client.id}}">{{client.name}} <i class="fas fa-external-link-alt">
+                </i>{{/client}}{{^client}}{{clientName}}{{/client}}</a></p>
+                {{/editMode}}
+
+                {{#editMode}}
+                <input name="clientName" type="text" value="{{clientName}}">
+                {{/editMode}}
 
                 <div class="date">
                     <p><b>Fecha de inicio:</b></p>
@@ -168,6 +178,9 @@
 
                 <p><b>Descripción de la campaña:</b></p>
                 <textarea name="description" maxlength="80"></textarea>
+
+                <p><b>Cliente asociado:</b></p>
+                <input name="clientName" type="text">
 
                 <div class="date">
                     <p><b>Fecha de inicio:</b></p>

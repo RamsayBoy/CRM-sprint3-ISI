@@ -3,6 +3,7 @@ package kapesystems.crmsprint3isi.controllers;
 import kapesystems.crmsprint3isi.model.Campaign;
 import kapesystems.crmsprint3isi.model.Client;
 import kapesystems.crmsprint3isi.repositories.CampaignRepository;
+import kapesystems.crmsprint3isi.repositories.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +22,9 @@ public class CampaignController {
 
     @Autowired
     private CampaignRepository campaignRepo;
+
+    @Autowired
+    private ClientRepository clientRepo;
 
     @RequestMapping()
     public String campaigns(Model model) {
@@ -55,7 +59,13 @@ public class CampaignController {
 
     @RequestMapping("/add")
     public String addCampaign(@ModelAttribute("campaign") Campaign campaign, RedirectAttributes redirectAttributes) {
+        Client client = clientRepo.findByName(campaign.getClientName());
+
+        if(client == null)
+            campaign.setClientName("DESCONOCIDO");
+
         if(campaign != null) {
+            campaign.setClient(client);
             campaignRepo.save(campaign);
             redirectAttributes.addFlashAttribute("redirectMsg", "La campaña " + campaign.getTitle()
                     + " ha sido añadida con éxito.");
@@ -82,13 +92,17 @@ public class CampaignController {
         return "redirect:/campaigns";
     }
 
-    // TODO: change client
     @RequestMapping(value = "/post/{id}", method = RequestMethod.POST)
     public String postCampaign(@PathVariable Long id, @ModelAttribute("campaign") Campaign campaignEdited,
                                RedirectAttributes redirectAttributes) {
         Optional<Campaign> campaign = campaignRepo.findById(id);
+        Client client = clientRepo.findByName(campaignEdited.getClientName());
+
+        if(client == null)
+            campaignEdited.setClientName("DESCONOCIDO");
 
         if(campaign.isPresent()) {
+            campaignEdited.setClient(client);
             campaignRepo.save(campaignEdited);
             redirectAttributes.addFlashAttribute("editClientMsg", "La campaña ha sido modificada");
         }
