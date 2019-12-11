@@ -28,23 +28,25 @@ public class DatabaseInitializer implements CommandLineRunner {
 
         Client client1 = new Client("Daslukia", "28/03/2019");
         Client client2 = new Client("PapuCar", "17/07/2019");
-        Client client3 = new Client("KAPEWARE", "02/05/2019");
+        Client client3 = new Client("Berkhire", "02/05/2019");
         Client client4 = new Client("CoreDump", "25/02/2018");
+        Client client5 = new Client("Starbukos", "24/01/2019");
+        Client client6 = new Client("IMB", "10/12/2019");
+        Client client7 = new Client("Zonama", "25/09/2019");
+        Client client8 = new Client("Glegoo", "21/11/2019");
 
         Campaign campaing1 = new Campaign(
                 "Summer Time",
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc feugiat consectetur sodales." +
-                        " Etiam eu vehicula leo.",
+                "Una buena campaña de verano para hacer cosas chulas.",
                 "15/06/2019", "15/09/2019");
         Campaign campaign2 = new Campaign(
                 "Navidad por doquier",
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc feugiat consectetur sodales." +
-                        " Etiam eu vehicula leo. Maecenas quis porta ex.",
-                "02/05/2019", "29/05/2019");
+                "Con la navidad hay nuevos servicios fresquísimos.",
+                "12/12/2019", "25/12/2019");
         Campaign campaign3 = new Campaign(
-                "Black Friday",
-                "alkndsl askdklad asdlkasd",
-                "25/02/2018", "17/03/2018");
+                "Black week",
+                "Todas las rebajas posibles en nuestros servicios",
+                "20/02/2018", "27/02/2018");
 
         // It is necessary to set up campaigns before save them in the repository because are the main entity
         campaing1.setClient(client1);
@@ -55,6 +57,10 @@ public class DatabaseInitializer implements CommandLineRunner {
         clientRepository.save(client2);
         clientRepository.save(client3);
         clientRepository.save(client4);
+        clientRepository.save(client5);
+        clientRepository.save(client6);
+        clientRepository.save(client7);
+        clientRepository.save(client8);
 
         campaignRespository.save(campaing1);
         campaignRespository.save(campaign2);
