@@ -39,12 +39,23 @@
 </header>
 
 <div class="container">
-    <form id="createForm" action="/clients/add" modelAttribute="client">
-        <p>Nombre: <input type="text" name="name"></p>
-        <p>Fecha de registro: <input type="text" name="signUpDate"></p>
-        <button class="button" type="submit">Añadir cliente</button>
-        <a class="button" href="/clients">Cancelar</a>
-    </form>
+    <div class="purchaseDiv">
+        <form id="editForm" action="/clients/add" modelAttribute="client">
+            <h1 class="clientName"><input class="clientName" type="text" name="name" placeholder="Nombre del cliente"></h1>
+            <div class="clientContent">
+                <p class="id"><b>ID</b></p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <input class="id-input" type="number" name="id" value="AUTO" disabled></p>
+
+                <p class="date"><b>Fecha de registro</b></p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <input type="text" name="signUpDate" placeholder="dd/mm/yyyy"></p>
+
+                <div class="buttons">
+                    <button class="button" type="submit">Añadir cliente</button>
+                    <a class="button" href="/clients">Cancelar</a>
+                </div>
+            </div>
+        </form>
+    </div>
 </div>
 
 <!-- JS -->
