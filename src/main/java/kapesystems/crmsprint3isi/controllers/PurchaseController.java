@@ -3,6 +3,7 @@ package kapesystems.crmsprint3isi.controllers;
 import kapesystems.crmsprint3isi.model.Campaign;
 import kapesystems.crmsprint3isi.model.Client;
 import kapesystems.crmsprint3isi.model.Purchase;
+import kapesystems.crmsprint3isi.repositories.ClientRepository;
 import kapesystems.crmsprint3isi.repositories.PurchaseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,6 +23,9 @@ public class PurchaseController {
 
     @Autowired
     PurchaseRepository purchaseRepo;
+
+    @Autowired
+    ClientRepository clientRepo;
 
     @RequestMapping()
     public String purchases(Model model) {
@@ -132,8 +136,13 @@ public class PurchaseController {
     public String postPurchase(Model model, @PathVariable Long id, @ModelAttribute("purchase") Purchase purchaseEdited,
                              RedirectAttributes redirectAttributes) {
         Optional<Purchase> purchase = purchaseRepo.findById(id);
+        Client client = clientRepo.findByName(purchaseEdited.getClientName());
+
+        if(client == null)
+            purchaseEdited.setClientName("DESCONOCIDO");
 
         if(purchase.isPresent()) {
+            purchaseEdited.setClient(client);
             purchaseRepo.save(purchaseEdited);
             redirectAttributes.addFlashAttribute("editClientMsg", "La compra ha sido modificada");
         }

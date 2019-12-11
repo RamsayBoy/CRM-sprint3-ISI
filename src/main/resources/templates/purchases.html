@@ -83,6 +83,8 @@
             <h1 class="caption">Histórico de compras</h1>
             <thead class="tableHeader">
                 <tr>
+                    <td class="no-format">&nbsp</td>
+                    <td class="no-format">&nbsp</td>
                     <td>ID</td>
                     <td>Producto / servicio</td>
                     <td class="price">Precio</td>
@@ -100,6 +102,8 @@
         {{/arePurchases}}
         {{#purchases}}
                 <tr>
+                    <td class="no-format"><a href="purchases/{{id}}/edit"><i class="fas fa-edit"></i></a></td>
+                    <td class="no-format delete"><a href="purchases/delete/{{id}}"><i class="fas fa-trash-alt"></i></a></td>
                     <td class="center id">{{id}}</td>
                     <td><a href="purchases/{{id}}">{{productName}} <i class="fas fa-external-link-alt"></i></a></td>
                     <td class="price">{{price}}€</td>
